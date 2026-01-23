@@ -1,0 +1,791 @@
+{
+  "name": "mqtt_paho",
+  "label": "MQTT Paho",
+  "description": "MQTT connector using Eclipse Paho.",
+  "publisher": "Community",
+  "version": "1.0.0",
+  "category": "Utilities",
+  "icon_small_name": "mqtt_paho_small.svg",
+  "icon_large_name": "mqtt_paho_large.svg",
+  "configuration": {
+    "fields": [
+      {
+        "title": "Broker Host",
+        "name": "broker_host",
+        "type": "text",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "description": "MQTT broker hostname or IP.",
+        "tooltip": "Example: broker.example.com"
+      },
+      {
+        "title": "Broker Port",
+        "name": "broker_port",
+        "type": "integer",
+        "required": true,
+        "editable": true,
+        "visible": true,
+        "description": "MQTT broker port.",
+        "value": 1883,
+        "tooltip": "Default: 1883 (or 8883 for TLS)."
+      },
+      {
+        "title": "Use TLS",
+        "name": "use_tls",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Enable TLS for broker connection.",
+        "value": false
+      },
+      {
+        "title": "Verify TLS Certificate",
+        "name": "verify_ssl",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Verify broker TLS certificate.",
+        "value": true
+      },
+      {
+        "title": "CA Certificate Path",
+        "name": "ca_cert",
+        "type": "text",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Optional CA certificate path on the connector host.",
+        "tooltip": "Leave empty to use system defaults."
+      },
+      {
+        "title": "Username",
+        "name": "username",
+        "type": "text",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Broker username."
+      },
+      {
+        "title": "Password",
+        "name": "password",
+        "type": "password",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Broker password."
+      },
+      {
+        "title": "Client ID",
+        "name": "client_id",
+        "type": "text",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Optional client identifier."
+      },
+      {
+        "title": "Keepalive (seconds)",
+        "name": "keepalive",
+        "type": "integer",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "MQTT keepalive interval.",
+        "value": 60
+      },
+      {
+        "title": "Clean Session",
+        "name": "clean_session",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Start with a clean session.",
+        "value": true
+      },
+      {
+        "title": "Connect Timeout (seconds)",
+        "name": "connect_timeout",
+        "type": "integer",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Timeout waiting for broker connection.",
+        "value": 10
+      },
+      {
+        "title": "Last Will Topic",
+        "name": "will_topic",
+        "type": "text",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Optional last will topic."
+      },
+      {
+        "title": "Last Will Payload",
+        "name": "will_payload",
+        "type": "textarea",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Optional last will payload."
+      },
+      {
+        "title": "Last Will QoS",
+        "name": "will_qos",
+        "type": "integer",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Last will QoS level.",
+        "value": 0
+      },
+      {
+        "title": "Last Will Retain",
+        "name": "will_retain",
+        "type": "checkbox",
+        "required": false,
+        "editable": true,
+        "visible": true,
+        "description": "Retain last will message.",
+        "value": false
+      }
+    ]
+  },
+  "operations": [
+    {
+      "operation": "publish_message",
+      "title": "Publish Message",
+      "description": "Publish a message to an MQTT topic.",
+      "category": "miscellaneous",
+      "annotation": "publish",
+      "parameters": [
+        {
+          "title": "Topic",
+          "name": "topic",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Topic to publish to."
+        },
+        {
+          "title": "Payload",
+          "name": "payload",
+          "type": "textarea",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Message payload as text."
+        },
+        {
+          "title": "QoS",
+          "name": "qos",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Quality of service level.",
+          "value": 0
+        },
+        {
+          "title": "Retain",
+          "name": "retain",
+          "type": "checkbox",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Retain the published message.",
+          "value": false
+        },
+        {
+          "title": "Publish Timeout (seconds)",
+          "name": "timeout",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Timeout waiting for publish acknowledgement.",
+          "value": 10
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "topic": "",
+        "mid": "",
+        "published": ""
+      }
+    },
+    {
+      "operation": "publish_json",
+      "title": "Publish JSON",
+      "description": "Publish a JSON payload to an MQTT topic.",
+      "category": "miscellaneous",
+      "annotation": "publish",
+      "parameters": [
+        {
+          "title": "Topic",
+          "name": "topic",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Topic to publish to."
+        },
+        {
+          "title": "JSON Payload",
+          "name": "json_payload",
+          "type": "textarea",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Message payload as JSON."
+        },
+        {
+          "title": "QoS",
+          "name": "qos",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Quality of service level.",
+          "value": 0
+        },
+        {
+          "title": "Retain",
+          "name": "retain",
+          "type": "checkbox",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Retain the published message.",
+          "value": false
+        },
+        {
+          "title": "Publish Timeout (seconds)",
+          "name": "timeout",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Timeout waiting for publish acknowledgement.",
+          "value": 10
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "topic": "",
+        "mid": "",
+        "published": ""
+      }
+    },
+    {
+      "operation": "publish_base64",
+      "title": "Publish Base64",
+      "description": "Publish a base64 payload to an MQTT topic.",
+      "category": "miscellaneous",
+      "annotation": "publish",
+      "parameters": [
+        {
+          "title": "Topic",
+          "name": "topic",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Topic to publish to."
+        },
+        {
+          "title": "Base64 Payload",
+          "name": "payload_b64",
+          "type": "textarea",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Message payload as base64."
+        },
+        {
+          "title": "QoS",
+          "name": "qos",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Quality of service level.",
+          "value": 0
+        },
+        {
+          "title": "Retain",
+          "name": "retain",
+          "type": "checkbox",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Retain the published message.",
+          "value": false
+        },
+        {
+          "title": "Publish Timeout (seconds)",
+          "name": "timeout",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Timeout waiting for publish acknowledgement.",
+          "value": 10
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "topic": "",
+        "mid": "",
+        "published": ""
+      }
+    },
+    {
+      "operation": "subscribe_once",
+      "title": "Subscribe Once",
+      "description": "Subscribe to a topic and wait for one message.",
+      "category": "miscellaneous",
+      "annotation": "subscribe",
+      "parameters": [
+        {
+          "title": "Topic",
+          "name": "topic",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Topic to subscribe to."
+        },
+        {
+          "title": "QoS",
+          "name": "qos",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Quality of service level.",
+          "value": 0
+        },
+        {
+          "title": "Timeout (seconds)",
+          "name": "timeout",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Timeout waiting for a message.",
+          "value": 30
+        },
+        {
+          "title": "Decode Payload",
+          "name": "decode_payload",
+          "type": "checkbox",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Decode payload as UTF-8.",
+          "value": true
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "topic": "",
+        "payload": "",
+        "payload_b64": "",
+        "qos": "",
+        "retain": ""
+      }
+    },
+    {
+      "operation": "subscribe_once_json",
+      "title": "Subscribe Once (JSON)",
+      "description": "Subscribe to a topic and wait for one JSON message.",
+      "category": "miscellaneous",
+      "annotation": "subscribe",
+      "parameters": [
+        {
+          "title": "Topic",
+          "name": "topic",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Topic to subscribe to."
+        },
+        {
+          "title": "QoS",
+          "name": "qos",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Quality of service level.",
+          "value": 0
+        },
+        {
+          "title": "Timeout (seconds)",
+          "name": "timeout",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Timeout waiting for a message.",
+          "value": 30
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "topic": "",
+        "payload_json": "",
+        "qos": "",
+        "retain": ""
+      }
+    },
+    {
+      "operation": "subscribe_multi_once",
+      "title": "Subscribe Multiple (Once)",
+      "description": "Subscribe to multiple topics and wait for one message.",
+      "category": "miscellaneous",
+      "annotation": "subscribe",
+      "parameters": [
+        {
+          "title": "Topics",
+          "name": "topics",
+          "type": "textarea",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Topics list (JSON array, comma, or newline separated)."
+        },
+        {
+          "title": "QoS",
+          "name": "qos",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Quality of service level.",
+          "value": 0
+        },
+        {
+          "title": "Timeout (seconds)",
+          "name": "timeout",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Timeout waiting for a message.",
+          "value": 30
+        },
+        {
+          "title": "Payload Format",
+          "name": "payload_format",
+          "type": "select",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Format to parse payload.",
+          "value": "text",
+          "options": [
+            "text",
+            "json",
+            "base64"
+          ]
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "topic": "",
+        "payload": "",
+        "payload_b64": "",
+        "payload_json": "",
+        "qos": "",
+        "retain": ""
+      }
+    },
+    {
+      "operation": "subscribe_stream",
+      "title": "Subscribe Stream",
+      "description": "Subscribe to a topic and collect multiple messages.",
+      "category": "miscellaneous",
+      "annotation": "subscribe",
+      "parameters": [
+        {
+          "title": "Topic",
+          "name": "topic",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Topic to subscribe to."
+        },
+        {
+          "title": "QoS",
+          "name": "qos",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Quality of service level.",
+          "value": 0
+        },
+        {
+          "title": "Timeout (seconds)",
+          "name": "timeout",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Total time to collect messages.",
+          "value": 30
+        },
+        {
+          "title": "Max Messages",
+          "name": "max_messages",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Maximum messages to collect.",
+          "value": 10
+        },
+        {
+          "title": "Payload Format",
+          "name": "payload_format",
+          "type": "select",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Format to parse payload.",
+          "value": "text",
+          "options": [
+            "text",
+            "json",
+            "base64"
+          ]
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "count": "",
+        "messages": []
+      }
+    },
+    {
+      "operation": "unsubscribe",
+      "title": "Unsubscribe",
+      "description": "Unsubscribe from one or more topics.",
+      "category": "miscellaneous",
+      "annotation": "subscribe",
+      "parameters": [
+        {
+          "title": "Topics",
+          "name": "topics",
+          "type": "textarea",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Topics list (JSON array, comma, or newline separated)."
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "mid": ""
+      }
+    },
+    {
+      "operation": "clear_retained",
+      "title": "Clear Retained Message",
+      "description": "Clear a retained message for a topic.",
+      "category": "miscellaneous",
+      "annotation": "publish",
+      "parameters": [
+        {
+          "title": "Topic",
+          "name": "topic",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Topic to clear."
+        },
+        {
+          "title": "QoS",
+          "name": "qos",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Quality of service level.",
+          "value": 0
+        },
+        {
+          "title": "Publish Timeout (seconds)",
+          "name": "timeout",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Timeout waiting for publish acknowledgement.",
+          "value": 10
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "topic": "",
+        "mid": "",
+        "published": ""
+      }
+    },
+    {
+      "operation": "connection_status",
+      "title": "Connection Status",
+      "description": "Connect to the broker and return status.",
+      "category": "miscellaneous",
+      "annotation": "health",
+      "parameters": [],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "rc": ""
+      }
+    },
+    {
+      "operation": "topic_match",
+      "title": "Topic Match",
+      "description": "Check if a topic matches a subscription filter.",
+      "category": "miscellaneous",
+      "annotation": "utilities",
+      "parameters": [
+        {
+          "title": "Subscription Filter",
+          "name": "subscription",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Subscription filter (wildcards allowed)."
+        },
+        {
+          "title": "Topic",
+          "name": "topic",
+          "type": "text",
+          "required": true,
+          "editable": true,
+          "visible": true,
+          "description": "Topic name."
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "matches": ""
+      }
+    },
+    {
+      "operation": "get_last_will",
+      "title": "Get Last Will",
+      "description": "Get the configured last will settings.",
+      "category": "miscellaneous",
+      "annotation": "utilities",
+      "parameters": [],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": "",
+        "will_topic": "",
+        "will_payload": "",
+        "will_qos": "",
+        "will_retain": ""
+      }
+    },
+    {
+      "operation": "set_last_will_config",
+      "title": "Set Last Will",
+      "description": "Update the connector configuration with last will settings.",
+      "category": "miscellaneous",
+      "annotation": "utilities",
+      "parameters": [
+        {
+          "title": "Will Topic",
+          "name": "will_topic",
+          "type": "text",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Last will topic."
+        },
+        {
+          "title": "Will Payload",
+          "name": "will_payload",
+          "type": "textarea",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Last will payload."
+        },
+        {
+          "title": "Will QoS",
+          "name": "will_qos",
+          "type": "integer",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Last will QoS.",
+          "value": 0
+        },
+        {
+          "title": "Will Retain",
+          "name": "will_retain",
+          "type": "checkbox",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Retain last will.",
+          "value": false
+        },
+        {
+          "title": "Config ID",
+          "name": "config_id",
+          "type": "text",
+          "required": false,
+          "editable": true,
+          "visible": true,
+          "description": "Optional configuration ID (defaults to default config)."
+        }
+      ],
+      "enabled": true,
+      "output_schema": {
+        "status": "",
+        "message": ""
+      }
+    }
+  ]
+}

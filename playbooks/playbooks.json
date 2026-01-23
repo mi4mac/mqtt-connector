@@ -1,0 +1,1193 @@
+{
+  "type": "workflow_collections",
+  "data": [
+    {
+      "@context": "/api/3/contexts/WorkflowCollection",
+      "@type": "WorkflowCollection",
+      "name": "00 - MQTT",
+      "description": "Sample playbooks for MQTT connector actions.",
+      "visible": true,
+      "image": null,
+      "uuid": "96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+      "id": 166,
+      "createDate": 1769178691.263171,
+      "modifyDate": 1769178691.263171,
+      "deletedAt": null,
+      "importedBy": [],
+      "recordTags": [],
+      "workflows": [
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Publish Message",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000001",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Publish Message",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "publish_message",
+                "operationTitle": "Publish Message",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000001"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000001"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Publish Message",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000001",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000001",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000001"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000001",
+          "id": 2001,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Publish JSON",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000002",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Publish JSON",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "publish_json",
+                "operationTitle": "Publish JSON",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000002"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000002"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Publish JSON",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000002",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000002",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000002"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000002",
+          "id": 2002,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Publish Base64",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000003",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Publish Base64",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "publish_base64",
+                "operationTitle": "Publish Base64",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000003"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000003"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Publish Base64",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000003",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000003",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000003"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000003",
+          "id": 2003,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Subscribe Once",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000004",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Subscribe Once",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "subscribe_once",
+                "operationTitle": "Subscribe Once",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000004"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000004"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Subscribe Once",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000004",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000004",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000004"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000004",
+          "id": 2004,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Subscribe Once (JSON)",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000005",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Subscribe Once (JSON)",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "subscribe_once_json",
+                "operationTitle": "Subscribe Once (JSON)",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000005"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000005"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Subscribe Once (JSON)",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000005",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000005",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000005"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000005",
+          "id": 2005,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Subscribe Multiple (Once)",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000006",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Subscribe Multiple (Once)",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "subscribe_multi_once",
+                "operationTitle": "Subscribe Multiple (Once)",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000006"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000006"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Subscribe Multiple (Once)",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000006",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000006",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000006"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000006",
+          "id": 2006,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Subscribe Stream",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000007",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Subscribe Stream",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "subscribe_stream",
+                "operationTitle": "Subscribe Stream",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000007"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000007"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Subscribe Stream",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000007",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000007",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000007"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000007",
+          "id": 2007,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Unsubscribe",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000008",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Unsubscribe",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "unsubscribe",
+                "operationTitle": "Unsubscribe",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000008"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000008"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Unsubscribe",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000008",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000008",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000008"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000008",
+          "id": 2008,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Clear Retained Message",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000009",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Clear Retained Message",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "clear_retained",
+                "operationTitle": "Clear Retained Message",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000009"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000009"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Clear Retained Message",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000009",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000009",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000009"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000009",
+          "id": 2009,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Connection Status",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000010",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Connection Status",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "connection_status",
+                "operationTitle": "Connection Status",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000010"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000010"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Connection Status",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000010",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000010",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000010"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000010",
+          "id": 2010,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Topic Match",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000011",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Topic Match",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "topic_match",
+                "operationTitle": "Topic Match",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000011"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000011"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Topic Match",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000011",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000011",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000011"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000011",
+          "id": 2011,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Get Last Will",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000012",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Get Last Will",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "get_last_will",
+                "operationTitle": "Get Last Will",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000012"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000012"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Get Last Will",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000012",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000012",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000012"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000012",
+          "id": 2012,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        },
+        {
+          "@type": "Workflow",
+          "triggerLimit": null,
+          "name": "Set Last Will",
+          "aliasName": null,
+          "tag": null,
+          "description": null,
+          "isActive": true,
+          "debug": true,
+          "singleRecordExecution": false,
+          "remoteExecutableFlag": false,
+          "parameters": [],
+          "synchronous": false,
+          "lastModifyDate": 1769178785,
+          "collection": "/api/3/workflow_collections/96fe19df-2e1b-4b22-86c5-0ec96dd46cd8",
+          "versions": [],
+          "triggerStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000013",
+          "steps": [
+            {
+              "@type": "WorkflowStep",
+              "name": "Set Last Will",
+              "description": null,
+              "arguments": {
+                "name": "MQTT Paho",
+                "config": "12d6a5d4-3387-4eef-9c6c-c8355cf96774",
+                "params": [],
+                "version": "1.0.0",
+                "connector": "mqtt_paho",
+                "operation": "set_last_will_config",
+                "operationTitle": "Set Last Will",
+                "pickFromTenant": false,
+                "step_variables": []
+              },
+              "status": null,
+              "top": "165",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/0bfed618-0316-11e7-93ae-92361f002671",
+              "group": null,
+              "uuid": "22222222-2222-2222-2222-000000000013"
+            },
+            {
+              "@type": "WorkflowStep",
+              "name": "Start",
+              "description": null,
+              "arguments": {
+                "__triggerLimit": true,
+                "step_variables": {
+                  "input": {
+                    "params": []
+                  }
+                },
+                "triggerOnSource": true,
+                "triggerOnReplicate": false
+              },
+              "status": null,
+              "top": "30",
+              "left": "125",
+              "stepType": "/api/3/workflow_step_types/b348f017-9a94-471f-87f8-ce88b6a7ad62",
+              "group": null,
+              "uuid": "11111111-1111-1111-1111-000000000013"
+            }
+          ],
+          "routes": [
+            {
+              "@type": "WorkflowRoute",
+              "name": "Start -> Set Last Will",
+              "targetStep": "/api/3/workflow_steps/22222222-2222-2222-2222-000000000013",
+              "sourceStep": "/api/3/workflow_steps/11111111-1111-1111-1111-000000000013",
+              "label": null,
+              "isExecuted": false,
+              "group": null,
+              "uuid": "33333333-3333-3333-3333-000000000013"
+            }
+          ],
+          "groups": [],
+          "priority": "/api/3/picklists/2b563c61-ae2c-41c0-a85a-c9709585e3f2",
+          "playbookOrigin": "/api/3/picklists/15c1e8c9-22bf-4e66-8fbb-0a502d4a4a3f",
+          "isEditable": true,
+          "uuid": "44444444-4444-4444-4444-000000000013",
+          "id": 2013,
+          "createUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "createDate": 1769178715.809061,
+          "modifyUser": "/api/3/people/3451141c-bac6-467c-8d72-85e0fab569ce",
+          "modifyDate": 1769178784.786327,
+          "owners": [],
+          "isPrivate": false,
+          "deletedAt": null,
+          "importedBy": [],
+          "recordTags": []
+        }
+      ]
+    }
+  ],
+  "exported_tags": []
+}
