@@ -9,6 +9,10 @@ messages, managing retained messages, and working with Last Will settings.
 Configuration includes TLS, authentication, client ID, keepalive, and connect
 timeouts.
 
+Version
+-------
+1.0.1
+
 Included Actions
 ----------------
 - Publish Message
@@ -28,6 +32,6 @@ Included Actions
 Package Contents
 ----------------
 - Connector source: `mqtt_paho/`
-- Icons: `mqtt_paho/images/`
-- Sample playbooks: `mqtt_paho/playbooks/playbooks.json`
+- Icons (PNG): `mqtt_paho/images/`
+- Sample playbooks: `mqtt_paho/playbooks/playbooks.json` (collection: `Sample - MQTT Paho - 1.0.1`)
 - Packaged archive: `mqtt_paho-1.0.1.tgz`
