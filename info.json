@@ -3,10 +3,10 @@
   "label": "MQTT Paho",
   "description": "MQTT connector using Eclipse Paho.",
   "publisher": "Community",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "category": "Utilities",
-  "icon_small_name": "mqtt_paho_small.svg",
-  "icon_large_name": "mqtt_paho_large.svg",
+  "icon_small_name": "mqtt_paho_small.png",
+  "icon_large_name": "mqtt_paho_large.png",
   "configuration": {
     "fields": [
       {

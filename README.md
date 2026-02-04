@@ -30,4 +30,4 @@ Package Contents
 - Connector source: `mqtt_paho/`
 - Icons: `mqtt_paho/images/`
 - Sample playbooks: `mqtt_paho/playbooks/playbooks.json`
-- Packaged archive: `mqtt_paho-1.0.0.tgz`
+- Packaged archive: `mqtt_paho-1.0.1.tgz`
